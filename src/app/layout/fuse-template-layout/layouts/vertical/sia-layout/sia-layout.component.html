@@ -1,0 +1,65 @@
+<!-- Loading bar -->
+<fuse-loading-bar></fuse-loading-bar>
+
+<!-- Navigation -->
+<fuse-vertical-navigation
+  class="light bg-white print:hidden"
+  [mode]="isScreenSmall ? 'over' : 'side'"
+  [name]="'mainNavigation'"
+  [navigation]="navigation.default"
+  [opened]="!isScreenSmall">
+  <!-- Navigation header hook -->
+  <ng-container fuseVerticalNavigationHeader>
+    <!-- Logo -->
+    <div class="flex items-center h-20 p-6 pb-0">
+      <img alt="Integrador Redesim Fiorilli" class="w-50"
+           src="../../../../../../assets/images/logo/logo_infratec.png">
+    </div>
+  </ng-container>
+  <!-- Navigation footer hook -->
+  <ng-container fuseVerticalNavigationFooter>
+    <div class="flex items-center w-full px-6 py-8 border-t">
+        <span class="relative">
+          <img class="w-7 h-7 rounded-full" [src]="picture">
+        </span>
+      <div class="flex flex-col w-full ml-2 overflow-hidden">
+        <div
+          class="w-full text-ellipsis overflow-hidden leading-normal text-current opacity-80">
+          {{ empresaName }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</fuse-vertical-navigation>
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full min-w-0">
+  <!-- Header -->
+  <div
+    class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
+    <!-- Navigation toggle button -->
+    <button
+      mat-icon-button
+      (click)="toggleNavigation('mainNavigation')">
+      <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+    </button>
+    <!-- Components -->
+    <div class="flex items-center pl-2 me-2 ml-auto space-x-0.5 sm:space-x-2">
+      <fuse-fullscreen class="hidden md:block" tooltip="Tela Cheia"></fuse-fullscreen>
+    </div>
+    <user></user>
+  </div>
+  <!-- Content -->
+  <div class="flex flex-col flex-auto">
+    <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
+         Otherwise, layout changes won't be registered and the view won't be updated! -->
+    <router-outlet *ngIf="true"></router-outlet>
+  </div>
+
+  <div class="w-full md:px-6 z-30 border-t bg-card dark:bg-transparent print:hidden" style="height: 28px">
+    <div class="font-medium text-secondary footer">
+      <span>Copyright &copy; 2022-{{ currentYear }} Fiorilli S/C Ltda. |&nbsp;<strong>Versão: {{ frontVersion }}
+        / {{ apiVersion }}</strong></span>
+    </div>
+  </div>
+</div>

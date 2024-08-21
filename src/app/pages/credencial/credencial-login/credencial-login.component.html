@@ -1,0 +1,28 @@
+<form class="mt-8 w-full" (submit)="login()">
+
+  <dx-text-box [(value)]="credential.username" label="Usu&aacute;rio ou CPF/CNPJ"
+               [showClearButton]="true" [inputAttr]="{autocapitalize: 'none'}"
+               class="w-full">
+    <dx-validator>
+      <dxi-validation-rule type="required" message="campo obrigatório">
+      </dxi-validation-rule>
+    </dx-validator>
+  </dx-text-box>
+
+  <dx-text-box [(value)]="credential.password" label="Senha" mode="password" [showClearButton]="true"
+               [(mode)]="passwordMode" class="w-full mt-6">
+    <dxi-button name="visible" location="after" [options]="passwordButton"></dxi-button>
+    <dx-validator>
+      <dxi-validation-rule type="required" message="campo obrigatório"></dxi-validation-rule>
+    </dx-validator>
+  </dx-text-box>
+
+  <dx-button type="default" text="Entrar" useSubmitBehavior="true" class="w-full mt-6"></dx-button>
+
+
+
+</form>
+
+
+<dx-load-panel [(visible)]="showLoading" shadingColor="rgba(0, 0, 0, 0.4)" [position]="{my: 'center', at: 'center'}">
+</dx-load-panel>

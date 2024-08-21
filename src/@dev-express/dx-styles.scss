@@ -1,0 +1,287 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+@import 'generated/variables.base';
+
+@import 'dx-data-view-styles';
+
+dx-tag-box,
+dx-text-area,
+dx-text-box,
+dx-date-box,
+dx-select-box,
+dx-number-box,
+dx-drop-down-box {
+  &.dx-state-focused {
+    .dx-texteditor-label {
+      margin-top: -1px !important;
+    }
+  }
+
+  .dx-texteditor-label {
+    line-height: 15px !important;
+    height: 15px !important;
+  }
+}
+
+dx-date-box .dx-overlay .dx-invalid-message .dx-invalid-message-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: .80em !important;
+}
+
+.dx-texteditor {
+  &.dx-editor-filled,
+  &.dx-editor-filled + .dx-state-active,
+  &.dx-editor-filled + .dx-state-focused,
+  &.dx-editor-filled + .dx-state-hover {
+    border-radius: 0;
+    border: none transparent;
+  }
+}
+
+.dx-editor-filled {
+  &.dx-dropdowneditor-button {
+    &.dx-state-active .dx-dropdowneditor-icon,
+    &.dx-state-hover .dx-dropdowneditor-icon,
+    &.dx-state-hover {
+      background-color: transparent;
+    }
+  }
+
+  &.dx-dropdowneditor {
+    &.dx-dropdowneditor-active .dx-dropdowneditor-icon,
+    &.dx-dropdowneditor-active.dx-state-hover .dx-dropdowneditor-icon,
+    &.dx-state-hover:not(.dx-custom-button-hovered) .dx-dropdowneditor-icon {
+      background-color: transparent;
+    }
+  }
+}
+
+.dx-popup-content .dx-list-item {
+  display: block !important;
+}
+
+.dx-button-has-icon.dx-button-has-text .dx-button-content {
+  font-size: 12px;
+}
+
+.dx-toolbar .dx-button .dx-icon {
+  font-size: 14px;
+}
+
+.dx-button {
+  font-size: 0.8rem;
+
+  .dx-button-text {
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  .dx-button-content {
+    display: inline-flex;
+  }
+}
+
+.dx-link.dx-icon.fas.fa-trash.dx-link-icon:hover {
+  color: #e20303 !important;
+}
+
+.dx-link.dx-icon:hover {
+  color: $base-accent !important;
+}
+
+.dx-tabs {
+  border: none;
+
+  .dx-button.dx-button-has-icon:not(.dx-button-has-text):not(.dx-shape-standard) {
+    height: 100%;
+  }
+
+  .dx-tab-selected::after {
+    border: none;
+  }
+}
+
+.dx-popup-title.dx-toolbar {
+  .dx-toolbar-item:last-child {
+    padding-right: 8px;
+  }
+}
+
+.dx-calendar-cell.dx-state-hover,
+.dx-calendar-cell.dx-calendar-selected-date,
+.dx-calendar-cell.dx-state-active:not(.dx-calendar-empty-cell):not(.dx-calendar-selected-date),
+.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-contoured-date,
+.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today.dx-calendar-contoured-date,
+.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today {
+  box-shadow: none;
+}
+
+.dx-calendar-navigator .dx-calendar-caption-button.dx-button .dx-button-content {
+  color: $base-accent;
+}
+
+.dx-row.dx-header-row {
+  background-color: $navbar-tab-bg;
+}
+
+.dx-toolbar {
+  background-color: $navbar-tab-bg;
+  padding: 2px 7px;
+}
+
+.dx-toolbar .dx-toolbar-items-container {
+  height: 36px;
+}
+
+.dx-context-menu .dx-submenu {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 450px) {
+  .dx-context-menu .dx-menu-item .dx-submenu {
+    transform: translate(-5%, 0) !important;
+  }
+}
+
+.dx-item.dx-menu-item.dx-menu-item-has-text {
+  font-weight: bold;
+}
+
+.dx-item.dx-menu-item.dx-menu-item-has-text.dx-menu-item-has-icon {
+  font-weight: normal !important;
+}
+
+.dx-context-menu .dx-menu-no-icons > .dx-menu-item-wrapper > .dx-menu-item > .dx-menu-item-content .dx-menu-item-text {
+  font-weight: normal !important;
+}
+
+.dx-context-menu-container-border {
+  border: none;
+}
+
+.dx-menu .dx-menu-horizontal .dx-menu-item-popout::before {
+  margin-left: -17px;
+}
+
+.dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-text {
+  font-size: 12px;
+}
+
+.dx-fieldset-header {
+  color: $base-accent !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.no-paddings-popover .dx-popup-content {
+  padding: 0;
+}
+
+.no-scroll-popup .dx-popup-content-scrollable {
+  overflow: hidden !important;
+}
+
+#file-viewer {
+  .dx-popup-content {
+    padding: 0;
+    background-color: #474747 !important;
+  }
+
+  .dx-card {
+    background-color: transparent;
+  }
+
+  .page {
+    margin-bottom: 8px;
+  }
+}
+
+#file-viewer-base {
+  .dx-popup-content {
+    padding: 0;
+    background-color: #1e1e1e;
+
+
+    .page {
+      margin-bottom: 10px;
+    }
+
+    #viewerContainer {
+      padding-bottom: 10px;
+    }
+
+    .dx-tabs > .dx-tabs-wrapper {
+      .dx-item {
+        background-color: #1e1e1e;
+        color: white;
+
+        &:before {
+          background-color: #474747;
+        }
+
+        .dx-item-content > .dx-tab-text > .dx-icon {
+          color: white;
+        }
+      }
+
+      .dx-item.dx-state-hover {
+        background-color: lighten(#1e1e1e, 5);
+      }
+    }
+  }
+
+  .dx-texteditor {
+    .dx-texteditor-container > .dx-texteditor-input-container > .dx-texteditor-input {
+      color: white;
+    }
+  }
+
+  .dx-texteditor.dx-state-focused {
+
+    .dx-texteditor-label > .dx-label {
+      color: white;
+    }
+
+    &:before {
+      border-bottom: solid 3px white;
+    }
+  }
+}
+
+dx-diagram .dx-diagram-content-wrapper .dx-diagram-floating-toolbar-container {
+  min-width: 130px;
+
+  .dx-diagram-toolbar .dx-toolbar-items-container .dx-toolbar-before .dx-toolbar-item .dx-item-content .dx-button {
+    border-radius: 0;
+  }
+}
+
+.dx-texteditor-buttons-container {
+  position: relative;
+
+  .dx-button {
+    height: 100%;
+    width: 33px;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: none;
+  }
+}
+
+.dx-field, .dx-field input, .dx-field textarea,
+.dx-overlay-wrapper, .dx-overlay-wrapper input, .dx-overlay-wrapper textarea,
+.dx-datagrid-column-chooser, .dx-treelist-column-chooser, .dx-treelist-column-chooser input, .dx-treelist-column-chooser textarea,
+.dx-menu-base, .dx-menu-base input, .dx-menu-base textarea,
+.dx-widget, .dx-widget input, .dx-widget textarea,
+.dx-theme-material-typography, .dx-theme-material-typography input, .dx-theme-material-typography textarea {
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.ql-container {
+  min-height: unset !important;
+}
+
+@import 'bootstrap/scss/bootstrap';
+@import 'dx-toolbar-styles';

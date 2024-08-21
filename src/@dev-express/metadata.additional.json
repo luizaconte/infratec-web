@@ -1,0 +1,125 @@
+{
+  "items": [
+    {
+      "key": "$form-field-item-color",
+      "value": "rgba(0, 0, 0, 1)"
+    },
+    {
+      "key": "$fieldset-field-label-color",
+      "value": "rgba(0, 96, 96, 1)"
+    },
+    {
+      "key": "$navbar-tab-selected-color",
+      "value": "rgba(0, 96, 96, 1)"
+    },
+    {
+      "key": "$navbar-tab-selected-bg",
+      "value": "rgba(248, 249, 250, 1)"
+    },
+    {
+      "key": "$tabs-tab-selected-color",
+      "value": "rgba(0, 96, 96, 1)"
+    },
+    {
+      "key": "$tabs-tab-color",
+      "value": "rgba(108, 117, 125, 1)"
+    },
+    {
+      "key": "$datagrid-search-bg",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$datagrid-selection-bg",
+      "value": "rgba(204, 223, 223, 1)"
+    },
+    {
+      "key": "$datagrid-columnchooser-font-weight",
+      "value": "700"
+    },
+    {
+      "key": "$datagrid-columnchooser-item-color",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$datagrid-drag-header-border-color",
+      "value": "rgba(204, 223, 223, 1)"
+    },
+    {
+      "key": "$datagrid-menu-icon-color",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$datagrid-group-row-color",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$datagrid-summary-color",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$datagrid-row-selected-border-color",
+      "value": "rgba(204, 223, 223, 1)"
+    },
+    {
+      "key": "$datagrid-focused-border-color",
+      "value": "rgba(224, 224, 224, 1)"
+    },
+    {
+      "key": "$datagrid-row-focused-bg",
+      "value": "rgba(204, 223, 223, 1)"
+    },
+    {
+      "key": "$datagrid-row-focused-color",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$datagrid-row-selected-color",
+      "value": "rgba(0, 0, 0, 1)"
+    },
+    {
+      "key": "$base-accent",
+      "value": "rgba(0, 96, 96, 1)"
+    },
+    {
+      "key": "$base-hover-color",
+      "value": "rgba(0, 134, 134, 1)"
+    },
+    {
+      "key": "$base-danger",
+      "value": "rgba(211, 47, 47, 1)"
+    },
+    {
+      "key": "$base-warning",
+      "value": "rgba(255, 236, 179, 1)"
+    },
+    {
+      "key": "$base-success",
+      "value": "rgba(104, 159, 56, 1)"
+    },
+    {
+      "key": "$base-label-color",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$base-icon-color",
+      "value": "rgba(73, 80, 87, 1)"
+    },
+    {
+      "key": "$base-border-radius",
+      "value": "0"
+    },
+    {
+      "key": "$tabs-tab-bg",
+      "value": "rgba(255, 255, 255, 1)"
+    },
+    {
+      "key": "$tabs-tab-color",
+      "value": "rgba(73, 80, 87, 1)"
+    }
+  ],
+  "baseTheme": "material.teal.light.compact",
+  "outputColorScheme": "additional",
+  "assetsBasePath": "../../../node_modules/devextreme/dist/css/",
+  "widgets": [],
+  "removeExternalResources": true
+}

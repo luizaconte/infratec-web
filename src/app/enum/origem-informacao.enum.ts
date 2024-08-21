@@ -1,0 +1,6 @@
+export enum OrigemInformacao {
+  SIA = 'SIA',
+  JUNTA_COMERCIAL = 'JUNTA_COMERCIAL',
+  PREFEITURA = 'PREFEITURA',
+  SOLICITANTE = 'SOLICITANTE'
+}

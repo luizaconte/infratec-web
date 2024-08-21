@@ -1,0 +1,80 @@
+<ng-container *ngFor="let item of items; let i = index">
+  <ng-container *ngIf="visible(item)">
+    <fuse-card #fuseCard class="flex flex-col w-full shadow-none rounded-none bg-card">
+      <div class="flex">
+        <button mat-icon-button class="me-2" (click)="changeExpand(fuseCard, i)">
+          <ng-container *ngIf="!fuseCard.expanded">
+            <mat-icon class="icon-size-5 text-black" [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
+          </ng-container>
+          <ng-container *ngIf="fuseCard.expanded">
+            <mat-icon class="icon-size-5 text-black" [svgIcon]="'heroicons_solid:chevron-up'"></mat-icon>
+          </ng-container>
+        </button>
+        <span class="text-lg tracking-tight leading-7 text-black mr-auto mt-2">{{ item.title }}</span>
+        <div class="flex justify-end">
+          <ng-container *ngIf="buttonsOptions?.length && isSmallScreen">
+            <button mat-icon-button [matMenuTriggerFor]="actionButton">
+              <i class="text-lg fa-solid fa-gears"></i>
+            </button>
+          </ng-container>
+          <mat-menu #actionButton="matMenu">
+            <ng-container *ngFor="let button of buttonsOptions">
+              <div *ngIf="button.visible || button.visible === undefined">
+                <button mat-menu-item [title]="button.hint ?? item.description" [disabled]="button.disabled"
+                        (click)="button.onClick()">
+                  <i class="fa-fw" [class]="button?.icon"></i>
+                  <span class="ms-2">{{ button.description }}</span>
+                </button>
+              </div>
+            </ng-container>
+          </mat-menu>
+          <ng-container *ngIf="buttonsOptions?.length && !isSmallScreen">
+            <ng-container *ngFor="let button of buttonsOptions">
+              <div *ngIf="button.visible || button.visible === undefined" [title]="button.hint ?? button.description">
+                <button mat-icon-button class="mt-1" [disabled]="button.disabled" (click)="button.onClick()">
+                  <i class="text-lg fa-fw" [class]="button?.icon"></i>
+                </button>
+              </div>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="adaptability || isSmallScreen else buttons">
+            <ng-container *ngIf="menuOptions?.length">
+              <div class="mr-3">
+                <button mat-icon-button [matMenuTriggerFor]="actionOption">
+                  <mat-icon class="icon-size-5 text-black" [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                </button>
+              </div>
+            </ng-container>
+            <mat-menu #actionOption="matMenu">
+              <ng-container *ngFor="let option of menuOptions">
+                <ng-container *ngIf="option.visible">
+                  <button mat-menu-item [title]="option.hint ?? item.description" (click)="option.onClick()">
+                    <i class="fa-fw" [class]="option?.icon"></i>
+                    <span class="ms-2">{{ option.description }}</span>
+                  </button>
+                  <mat-divider *ngIf="option?.divider" class="my-2"></mat-divider>
+                </ng-container>
+              </ng-container>
+            </mat-menu>
+          </ng-container>
+          <ng-template #buttons>
+            <ng-container *ngFor="let option of menuOptions">
+              <ng-container *ngIf="option.visible">
+                <button class="w-40" mat-menu-item [title]="option.hint ?? item.description" (click)="option.onClick()">
+                  <i class="fa-fw" [class]="option?.icon"></i>
+                  <span class="ms-2">{{ option.description }}</span>
+                </button>
+              </ng-container>
+            </ng-container>
+          </ng-template>
+        </div>
+      </div>
+      <ng-container *ngIf="item.showDivider">
+        <hr class="border-b mb-3 mt-0">
+      </ng-container>
+      <ng-container fuseCardExpansion>
+        <ng-container [ngTemplateOutlet]="template(i)"></ng-container>
+      </ng-container>
+    </fuse-card>
+  </ng-container>
+</ng-container>

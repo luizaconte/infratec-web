@@ -1,0 +1,34 @@
+<infratec-layout-page [current]="basicPageBase.current" [crumbs]="basicPageBase.crumbs"
+                 [hideButtonBar]="!basicPageBase.buttons?.length" [isDialog]="isDialog">
+  <ng-container *ngIf="basicPageBase.shortcutOption?.length">
+    <infratec-shortcut [shortcutOption]="basicPageBase.shortcutOption"></infratec-shortcut>
+  </ng-container>
+  <ng-content #content></ng-content>
+</infratec-layout-page>
+<ng-container *ngIf="basicPageBase.buttons?.length">
+  <div [ngClass]="isDialog? 'position-fixed' : 'position-absolute'" class="bottom-0 start-0 bg-white w-full py-1 px-5"
+       style="z-index: 160">
+    <div class="no-gutters" [class]="rowButtons ? 'row' : null">
+      <ng-container *ngIf="customButton">
+        <ng-container [ngTemplateOutlet]="customButton"></ng-container>
+      </ng-container>
+      <ng-container *ngFor="let button of basicPageBase.buttons">
+        <div *ngIf="button.visible || button.visible === undefined" [class]="button.cssClass" class="my-1">
+          <ng-container *ngIf="button.buttonType === 'dx-button'">
+            <dx-button intDoubleClick class="d-block" [type]="button.type" [stylingMode]="button.stylingMode"
+                       [text]="button.text" [disabled]="button.disabled" [hint]="button.hint"
+                       [icon]="button.icon ? button.icon+' me-2' : undefined" (onClick)="button.onClick()">
+            </dx-button>
+          </ng-container>
+          <ng-container *ngIf="button.buttonType === 'dx-dropdown'">
+            <dx-drop-down-button intDoubleClick class="d-block" [items]="button.items" [text]="button.text"
+                                 [dropDownOptions]="button.dropDownOptions" [stylingMode]="button.stylingMode"
+                                 [width]="button.width" [displayExpr]="button.displayExpr" [keyExpr]="button.keyExpr"
+                                 [icon]="button.icon" (onItemClick)="button.onClick($event)">
+            </dx-drop-down-button>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

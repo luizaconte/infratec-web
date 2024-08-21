@@ -1,0 +1,58 @@
+<infratec-layout-page [current]="current" [crumbs]="crumbs" [isDialog]="showCadastroDialog" [hideButtonBar]="listMode">
+  @if (_buttonsToolbar?.length) {
+    <div [class]="showCadastroDialog ? 'position-fixed' : 'position-absolute'"
+         class="start-0 w-full border-b py-2 px-2" style="z-index: 160; background-color: rgb(248, 249, 250);"
+         [ngClass]="showCadastroDialog ? 'top-9' : 'top-0'">
+      <infratec-shortcut [shortcutOption]="_buttonsToolbar" [disabledAll]="!listMode"></infratec-shortcut>
+    </div>
+  }
+
+  @if (listMode && cadastroBase) {
+    <div [class]="showCadastroDialog ?  'mt-8' : 'mt-11'">
+      @if (cadastroBase.page.filterBase) {
+        <infratec-filter-base [filterBase]="cadastroBase?.page.filterBase" [currentCrumb]="current" [autoSearch]="autoSearch"
+                         [dataGrid]="dataGrid" [useParentFilter]="useParentFilter"
+                         [disableFieldsFilter]="cadastroBase?.disableFieldsFilter"
+                         (afterSearchOrPrint)="onAfterSearchOrPrint($event)" (clearFilter)="clearFilter($event)">
+        </infratec-filter-base>
+      }
+    </div>
+    <ng-content select="[tagBox]"></ng-content>
+    <div [class]="showCadastroDialog ? 'mb-3' : 'mb-2'">
+      <infratec-data-grid class="custom-data-grid" #dataGrid [columns]="dadosBase?.columns" [selectionMode]="selectionMode"
+                     [sortable]="cadastroBase?.sortable" [firstRequest]="firstRequest" [showCustomButtons]="false"
+                     [customButtonOption]="customButtonOption" [fileExportName]="current" [onReorder]="onReorder"
+                     [initializeRowSelected]="initializeRowSelected" [optionsRequest]="cadastroBase?.page.options"
+                     [focusedRowEnabled]="focusedRowEnabled" [selectOnlyChildNodes]="selectOnlyChildNodes"
+                     [configTreeView]="{parentIdExpr: dadosBase?.treeListOptions?.parent, columnId: dadosBase?.columnId,
+                     rootValue: dadosBase?.treeListOptions?.rootValue}" [keyExpr]="dadosBase?.treeListOptions?.key"
+                     [componentBaseType]="cadastroBase?.componentBaseType" [customSummary]="dadosBase.customSummary"
+                     [autoExpandAll]="dadosBase.autoExpandAll" [url]="url" [filterClient]="dadosBase.filterClient"
+                     [filterable]="filterable ? filterable : cadastroBase?.filterable"
+                     (selectionChanged)="onSelectionChanged($event)" (rowDblClick)="onRowDblClick($event)"
+                     (rowClick)="onRowClick()" (sizeOrIndexPageChange)="onSizeOrIndexPageChange($event)"
+                     (dataSourceChange)="buttonsToolbar()">
+      </infratec-data-grid>
+    </div>
+  }
+  <ng-content></ng-content>
+</infratec-layout-page>
+@if (!listMode) {
+  <div [class]="showCadastroDialog ? 'position-fixed' : 'position-absolute'"
+       class="bottom-0 start-0 border-t w-full py-1 px-5" style="z-index: 160; background-color: rgb(248, 249, 250);">
+    <div class="d-flex">
+      <infratec-shortcut class="flex-grow-1" [shortcutOption]="_buttonsNavigation"></infratec-shortcut>
+      <ng-container *ngIf="!viewMode">
+        <dx-button intDoubleClick type="default" stylingMode="contained" text="Salvar"
+                   class="d-block me-3 my-1 mb-1 w-32 sm:w-52" icon="fas fa-circle-check" [disabled]="!enableHandler"
+                   (onClick)="doAction(null, actionSalvar)">
+        </dx-button>
+      </ng-container>
+      <dx-button stylingMode="contained" class="d-block my-1 mb-1 w-32 sm:w-52" icon="fa-solid fa-ban"
+                 [text]="viewMode ? 'Voltar' : 'Cancelar'" [disabled]="!enableHandler" (onClick)="onCancel()">
+      </dx-button>
+    </div>
+  </div>
+}
+<dx-load-panel [(visible)]="showLoading" shadingColor="rgba(0, 0, 0, 0.4)"
+               [position]="{my: 'center', at: 'center'}"></dx-load-panel>

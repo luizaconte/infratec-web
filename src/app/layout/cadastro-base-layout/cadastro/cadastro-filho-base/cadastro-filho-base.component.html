@@ -1,0 +1,40 @@
+@if (headerTitle) {
+  <div class="row mt-3">
+    <div class="dx-fieldset-header">{{ headerTitle }}</div>
+  </div>
+}
+<ng-content select="[custom-content]"></ng-content>
+@if (_buttonsToolbar?.length) {
+  <infratec-shortcut [disabledAll]="editingMode" [shortcutOption]="_buttonsToolbar"></infratec-shortcut>
+}
+@if (!editingMode) {
+  <div class="row">
+    <div class="col mb-3">
+      <infratec-data-grid #dataGrid [dataSource]="dataSource" [columns]="dadosBase.columns" [onReorder]="onReorder"
+                     [allowUpdating]="allowUpdating" [showFilterRow]="showFilterRow"
+                     [selectionMode]="selectionMode" [initializeRowSelected]="initializeRowSelected"
+                     [fileExportName]="headerTitle ?? fileExportName" [columnFixing]="columnFixing"
+                     [pageSize]="pageSize" [showCustomButtons]="showCustomButtons"
+                     [showPager]="showPager" (cellClick)="onCellClick($event)"
+                     (selectionChanged)="onSelectionChanged($event)" (rowDblClick)="onRowDblClick($event)"
+                     (rowUpdating)="onRowUpdating($event)" (rowClick)="onRowClick($event)">
+      </infratec-data-grid>
+    </div>
+  </div>
+} @else {
+  <ng-content></ng-content>
+}
+@if (editingMode ? showButtons : false) {
+  <div class="d-flex justify-content-end">
+    @if (!viewMode) {
+      <dx-button intDoubleClick [disabled]="disableButtons" icon="fas fa-floppy-disk" type="default"
+                 stylingMode="contained" text="Salvar" class="d-block me-3 w-32 sm:w-52"
+                 (onClick)="save()">
+      </dx-button>
+    }
+    <dx-button icon="fas fa-ban" stylingMode="contained" [text]="viewMode ? 'Voltar' : 'Cancelar'"
+               class="d-block w-32 sm:w-52" (onClick)="cancel()">
+    </dx-button>
+  </div>
+}
+

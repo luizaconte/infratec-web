@@ -1,0 +1,18 @@
+<dx-popup [(visible)]="show" [wrapperAttr]="{'id': 'file-viewer'}" [dragEnabled]="false" title="Visualizar {{type}}"
+          height="98%" width="98%" showCloseButton="true">
+  <ng-container *ngIf="show">
+    <ng-container *ngIf="isImage; else pdfTemplate">
+      <div class="d-flex h-100">
+        <img [src]="imageSanitizerSRC" class="mh-100 mw-100 m-auto d-block" alt="imagem">
+      </div>
+      <div class="button-download">
+        <dx-button class="px-2" type="outline" stylingMode="contained" icon="fas fa-download"
+                   (onClick)="downloadImage()">
+        </dx-button>
+      </div>
+    </ng-container>
+    <ng-template #pdfTemplate>
+      <infratec-pdf-viewer [src]="src" [viewMode]="viewMode" [onSignFile]="onSignFile"></infratec-pdf-viewer>
+    </ng-template>
+  </ng-container>
+</dx-popup>

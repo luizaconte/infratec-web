@@ -1,0 +1,8 @@
+export enum TipoPosicao {
+  FRENTE,
+  DIREITA,
+  ESQUERDA,
+  FUNDOS,
+  CURVA_DIREITA,
+  CURVA_ESQUERDA
+}

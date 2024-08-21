@@ -1,0 +1,67 @@
+<ng-container *ngIf="showCustomButtons">
+  <dx-toolbar class="toolbar-actions action">
+    <ng-container *ngIf="customButtonOption?.length">
+      <ng-container *ngFor="let button of customButtonOption">
+        <dxi-item [options]="button.options" [widget]="button.widget" [locateInMenu]="button.locateInMenu"
+                  [location]="button.location">
+        </dxi-item>
+      </ng-container>
+    </ng-container>
+  </dx-toolbar>
+</ng-container>
+<ng-container *ngIf="componentBaseType === componentBaseTypes.GRID || componentBaseType === undefined else treeview">
+  <dx-data-grid id="context-appoinment" [dataSource]="dataSource" [columns]="columns" [hoverStateEnabled]="true"
+                [keyExpr]="keyExpr" [columnAutoWidth]="true" [rowAlternationEnabled]="rowAlternationEnabled"
+                [columnHidingEnabled]="false" [showColumnLines]="false" [showRowLines]="true" [showBorders]="false"
+                [summary]="customSummary" [height]="scrollingMode === 'virtual' ? 300 : 'auto'"
+                [focusedRowIndex]="0" [focusedRowEnabled]="focusedRowEnabled"
+                (pagingChange)="onPagingChange($event)" (onRowPrepared)="onRowPrepared($event)"
+                (onCellPrepared)="onCellPrepared($event)" (onSelectionChanged)="onSelectionChanged($event)"
+                (onContentReady)="onContentReadyHandler($event)" (onRowUpdating)="onRowUpdating($event)"
+                (onCellClick)="onCellClick($event)" (onRowClick)="onRowClick($event)"
+                (onRowDblClick)="onRowDblClick($event)" (onEditorPreparing)="onEditorPreparing($event)"
+                (onContextMenuPreparing)="onContextMenuPreparing($event)">
+    <dxo-column-fixing [enabled]="columnFixing"></dxo-column-fixing>
+    <dxo-filter-row [visible]="showFilterRow"></dxo-filter-row>
+
+    <ng-container *ngIf="showPager && showPaging">
+      <dxo-pager [visible]="showPager" [allowedPageSizes]="allowedPageSizes" [showInfo]="true"
+                 displayMode="compact" [showPageSizeSelector]="true" [showNavigationButtons]="true">
+      </dxo-pager>
+    </ng-container>
+    <dxo-paging [enabled]="showPaging" [pageSize]="pageSize ?? page?.pageSize" [pageIndex]="page?.pageIndex">
+    </dxo-paging>
+    <ng-container *ngIf="url">
+      <dxo-remote-operations [paging]="serverOperation" [sorting]="serverOperation" [filtering]="showFilterRow">
+      </dxo-remote-operations>
+    </ng-container>
+    <dxo-editing mode="cell" [allowUpdating]="allowUpdating"></dxo-editing>
+    <dxo-row-dragging [allowReordering]="onReorder !== undefined" [onReorder]="reorder"
+                      [showDragIcons]="onReorder !== undefined">
+    </dxo-row-dragging>
+    <dxo-scrolling [mode]="scrollingMode"></dxo-scrolling>
+    <dxo-selection [allowSelectAll]="allowSelectAll" [selectAllMode]="selectAllMode" [mode]="selectionMode"
+                   showCheckBoxesMode="always">
+    </dxo-selection>
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-grouping [autoExpandAll]="autoExpandAll"></dxo-grouping>
+  </dx-data-grid>
+</ng-container>
+<ng-template #treeview>
+  <dx-tree-list [dataSource]="dataSource" [keyExpr]="keyExpr" [parentIdExpr]="configTreeView?.parentIdExpr"
+                [rowAlternationEnabled]="rowAlternationEnabled" [columns]="columns" filterMode="fullBranch"
+                [rootValue]="configTreeView?.rootValue" [columnHidingEnabled]="false" [autoExpandAll]="autoExpandAll"
+                [hasItemsExpr]="configTreeView?.hasItemsExpr" [showColumnLines]="false" [showRowLines]="false"
+                [showBorders]="false" (onSelectionChanged)="onSelectionChanged($event)"
+                (onContentReady)="onContentReadyHandler($event)" (onRowClick)="onRowClick($event)">
+    <dxo-search-panel [visible]="searchPanel" width="100%"></dxo-search-panel>
+    <dxo-scrolling mode="standard" columnRenderingMode="virtual"></dxo-scrolling>
+    <dxo-selection [allowSelectAll]="true" [selectAllMode]="selectAllMode" [mode]="selectionMode"
+                   showCheckBoxesMode="always">
+    </dxo-selection>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+    <dxo-filter-row [visible]="showFilterRow" ></dxo-filter-row>
+    <dxo-editing mode="cell" [allowUpdating]="allowUpdating"></dxo-editing>
+    <dxo-sorting mode="multiple"></dxo-sorting>
+  </dx-tree-list>
+</ng-template>

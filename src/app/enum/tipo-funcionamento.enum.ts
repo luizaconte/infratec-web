@@ -1,0 +1,12 @@
+export enum TipoFuncionamento {
+  TODOS = 'TODOS',
+  SEGUNDA = 'SEGUNDA',
+  TERCA = 'TERCA',
+  QUARTA = 'QUARTA',
+  QUINTA = 'QUINTA',
+  SEXTA = 'SEXTA',
+  SABADO = 'SABADO',
+  DOMINGO = 'DOMINGO',
+  FERIADO = 'FERIADO',
+  DIAS_SEMANA = 'DIAS_SEMANA'
+}

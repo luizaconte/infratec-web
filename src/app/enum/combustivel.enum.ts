@@ -1,0 +1,21 @@
+export enum Combustivel {
+  Outro,
+  Alcool,
+  Gasolina,
+  Diesel,
+  Gasogenio,
+  GasMetano,
+  EletricoFonteInterna,
+  EletricoFonteExterna,
+  GasolinaGasNaturalCombustivel,
+  AlcoolGasNaturalCombustivel,
+  DieselGasNaturalCombustivel,
+  VideCampoObservacao,
+  AlcoolGasNaturalVeicular,
+  GasolinaGasNaturalVeicular,
+  DieselGasNaturalVeicular,
+  GasNaturalVeicular,
+  AlcoolGasolina,
+  GasolinaAlcoolGasNaturalVeicular,
+  GasolinaEletrico
+}

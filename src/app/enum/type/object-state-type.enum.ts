@@ -1,0 +1,6 @@
+export enum ObjectStateType {
+  INSERTED = 'INSERTED',
+  UNMODIFIED = 'UNMODIFIED',
+  MODIFIED = 'MODIFIED',
+  DELETED = 'DELETED'
+}

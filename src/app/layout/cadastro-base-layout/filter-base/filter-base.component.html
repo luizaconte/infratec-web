@@ -1,0 +1,33 @@
+<div class="mb-3">
+  <infratec-expansion-panel #expansion [items]="itemsExpansion" [menuOptions]="menuOptions" [buttonsOptions]="buttonsOptions"
+                       [adaptability]="false" >
+    <ng-template #0>
+      <form (submit)="onSearchOrPrint()">
+        <ng-template #componentHost></ng-template>
+        <ng-container *ngIf="!isComponentFilter">
+          <div [formGroup]="form" class="row mb-3">
+            <dx-form [formData]="formData" labelMode="floating" [colCount]="12" (onFieldDataChanged)="onFieldDataChanged($event)">
+              <ng-container *ngFor=" let field of filterBase">
+                <dxi-item [editorType]="field.editorType" [colSpan]="field.colSpan" [label]="{text: field.text}" [dataField]="field.fieldName"
+                          cssClass="item" [editorOptions]="{ useMaskBehavior: 'true', openOnFieldClick: 'true', dataSource: field.items,
+                                displayExpr: field.displayExpr ?? 'description', valueExpr: 'type', placeholder: '', value: null,
+                                disabled: (disableFieldsFilter?.length && disableFieldsFilter?.indexOf(field.fieldName) !== -1) }">
+                </dxi-item>
+              </ng-container>
+            </dx-form>
+          </div>
+        </ng-container>
+        <div class="d-flex justify-content-end">
+          <ng-container *ngIf="showPesquisarButton">
+            <dx-button #focus intDoubleClick type="default" text="Pesquisar" useSubmitBehavior="true"
+                       icon="fas fa-search" class="d-block me-3 my-1 mb-1 w-32 sm:w-52">
+            </dx-button>
+          </ng-container>
+          <dx-button intDoubleClick stylingMode="contained" text="Limpar"
+                     class="d-block me-3 my-1 mb-1 w-32 sm:w-52" icon="fa-solid fa-eraser" (onClick)="clear(true)">
+          </dx-button>
+        </div>
+      </form>
+    </ng-template>
+  </infratec-expansion-panel>
+</div>
