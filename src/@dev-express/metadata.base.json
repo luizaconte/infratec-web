@@ -9,10 +9,6 @@
       "value": "rgba(0, 96, 96, 1)"
     },
     {
-      "key": "$navbar-tab-bg",
-      "value": "rgba(248, 249, 250, 1)"
-    },
-    {
       "key": "$navbar-tab-selected-color",
       "value": "rgba(0, 96, 96, 1)"
     },
@@ -119,10 +115,6 @@
     {
       "key": "$tabs-tab-color",
       "value": "rgba(73, 80, 87, 1)"
-    },
-    {
-      "key": "$base-font-family",
-      "value": "\"Inter var\", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\";"
     }
   ],
   "baseTheme": "material.teal.light.compact",

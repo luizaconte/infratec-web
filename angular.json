@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "b0f6e55c-ab84-4499-9f50-0848270d0f5d"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -13,7 +10,8 @@
       "prefix": "infratec",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
         }
       },
       "architect": {
@@ -29,42 +27,66 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
-              "src/_redirects"
+              "src/_redirects",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
+                "output": "/assets/"
+              }
             ],
             "allowedCommonJsDependencies": [
-              "sweetalert2/dist/sweetalert2.js",
-              "chartjs-plugin-datalabels",
-              "@babel/runtime-corejs3",
-              "crypto-js/hmac-sha256",
-              "crypto-js/enc-base64",
-              "@ctrl/ngx-codemirror",
-              "crypto-js/enc-utf8",
-              "devexpress-diagram",
-              "devextreme-angular",
-              "devextreme-quill",
-              "devexpress-gantt",
-              "lodash.debounce",
-              "lodash.throttle",
-              "jspdf-autotable",
-              "lodash.memoize",
-              "chartjs-gauge",
-              "can-use-dom",
-              "file-saver",
-              "devextreme",
+              "raf",
+              "flat",
+              "pako",
+              "uuid",
+              "luxon",
+              "jszip",
+              "moment",
+              "buffer",
+              "lodash",
+              "core-js",
+              "exceljs",
+              "filesize",
               "chart.js",
               "rgbcolor",
-              "exceljs",
-              "core-js",
-              "moment",
-              "jszip",
-              "lodash",
-              "uuid",
-              "raf",
-              "flat"
+              "file-saver",
+              "devextreme",
+              "can-use-dom",
+              "chartjs-gauge",
+              "lodash.memoize",
+              "jspdf-autotable",
+              "lodash.throttle",
+              "lodash.debounce",
+              "devexpress-gantt",
+              "devextreme-quill",
+              "devextreme-angular",
+              "devexpress-diagram",
+              "crypto-js/enc-utf8",
+              "crypto-js/enc-base64",
+              "crypto-js/hmac-sha256",
+              "@babel/runtime-corejs3",
+              "chartjs-plugin-datalabels",
+              "@devexpress/utils/lib/errors",
+              "sweetalert2/dist/sweetalert2.js",
+              "@devexpress/utils/lib/utils/key",
+              "@devexpress/utils/lib/utils/url",
+              "@devexpress/utils/lib/utils/file",
+              "@devexpress/utils/lib/utils/list",
+              "@devexpress/utils/lib/utils/enum",
+              "@devexpress/utils/lib/class/stack",
+              "@devexpress/utils/lib/utils/common",
+              "@devexpress/utils/lib/utils/base64",
+              "@devexpress/utils/lib/utils/mime-type",
+              "@devexpress/utils/lib/utils/map/string",
+              "@devexpress/utils/lib/class/unit-converter",
+              "@devexpress/utils/lib/class/delayed-manager",
+              "@devexpress/utils/lib/intervals/sparse/map-collector"
             ],
             "styles": [
+              "src/styles/styles.scss",
               "node_modules/devextreme/dist/css/dx.common.css",
               "node_modules/devexpress-diagram/dist/dx-diagram.min.css",
+              "node_modules/devexpress-richedit/dist/dx.richedit.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/sweetalert2/src/sweetalert2.scss",
               "src/@dev-express/generated/theme.additional.css",
@@ -75,11 +97,13 @@
               "src/@fuse/styles/themes.scss",
               "src/styles/vendors.scss",
               "src/@fuse/styles/main.scss",
-              "src/styles/tailwind.scss",
-              "src/styles/styles.scss"
+              "src/styles/tailwind.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
+                "node_modules/",
+                "src/@dev-express/",
+                "src/styles/",
                 "src/@fuse/styles"
               ]
             },
@@ -139,18 +163,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "infratec:build"
+            "buildTarget": "infratec:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "infratec:build:production"
+              "buildTarget": "infratec:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "infratec:build"
+            "buildTarget": "infratec:build"
           }
         },
         "test": {
@@ -167,6 +191,11 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
+                "output": "/assets/"
+              },
               "src/manifest.json",
               "src/manifest.json"
             ]
@@ -187,5 +216,16 @@
         }
       }
     }
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }
