@@ -4,12 +4,3 @@ export enum TipoComponent {
   SELECT,
   INPUT_SEARCH
 }
-
-export enum InputTemplate {
-  BAIRRO,
-  CIDADE,
-  DISTRITO,
-  LOGRADOURO,
-  LOTEAMENTO,
-  QUADRA
-}

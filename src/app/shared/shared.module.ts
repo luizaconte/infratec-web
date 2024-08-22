@@ -5,7 +5,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {AppErrorHandlerService} from '../core/services/app-error-handler.service';
-import {DevExpressModule} from '../../@dev-express/dev-express.module';
 
 import {AuthInterceptor} from '../core/interceptor/auth.interceptor';
 import {ErrorInterceptor} from '../core/interceptor/error.interceptor';
@@ -22,7 +21,6 @@ import {FilterModule} from './component/filter/filter.module';
 
     HttpClientModule,
     ReactiveFormsModule,
-    DevExpressModule,
 
     CommonModule
   ],
@@ -38,7 +36,6 @@ import {FilterModule} from './component/filter/filter.module';
   exports: [
     CommonModule,
     FormsModule,
-    DevExpressModule,
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,

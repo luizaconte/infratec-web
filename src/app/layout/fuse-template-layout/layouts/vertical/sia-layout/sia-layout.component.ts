@@ -6,27 +6,17 @@ import {FuseNavigationService, FuseVerticalNavigationComponent} from '@fuse/comp
 import {Navigation} from 'app/layout/fuse-template-layout/core/navigation/navigation.types';
 import {NavigationService} from 'app/layout/fuse-template-layout/core/navigation/navigation.service';
 import {UserService} from 'app/layout/fuse-template-layout/core/user/user.service';
-import {EndpointUtils} from '../../../../../shared/utils/endpoint.utils';
-import {EmpresaService} from '../../../../../shared/services/empresa.service';
-import packageJson from '../../../../../../../package.json';
 
 @Component({
   selector: 'sia-layout',
   templateUrl: './sia-layout.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./sia-layout.component.scss']
 })
 export class SiaLayoutComponent implements OnInit, OnDestroy {
-
-  picture = new EndpointUtils().ApiAberturaEmpresas.LOGO_ENTIDADE;
-  empresaName: string;
 
   isScreenSmall: boolean;
   navigation: Navigation;
   private _unsubscribeAll: Subject<any> = new Subject<any>();
-
-  frontVersion: string = packageJson.version;
-  apiVersion: string = '-';
 
   /**
    * Constructor
@@ -38,14 +28,7 @@ export class SiaLayoutComponent implements OnInit, OnDestroy {
     private _userService: UserService,
     private _fuseMediaWatcherService: FuseMediaWatcherService,
     private _fuseNavigationService: FuseNavigationService,
-    private empresaService: EmpresaService
   ) {
-    this.empresaService.name$.subscribe(name => {
-      this.empresaName = name
-    });
-    this.empresaService.get$(new EndpointUtils().ApiAberturaEmpresas.PING).subscribe(result => {
-      this.apiVersion = result.serverVersion;
-    })
   }
 
   get currentYear(): number {

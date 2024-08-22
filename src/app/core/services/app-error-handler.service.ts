@@ -6,6 +6,6 @@ import {ErrorHandler, Injectable} from '@angular/core';
 export class AppErrorHandlerService implements ErrorHandler {
 
   handleError(error: any) {
-    console.error(`%c[Fiorilli SIA - Sistema Integrado de Arrecadação] - Integrador`, 'font-weight: bold;', error);
+    console.error(`%c[InfraTec] - Sistema de Chamados`, 'font-weight: bold;', error);
   }
 }
