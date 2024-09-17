@@ -12,6 +12,7 @@ export class EndpointUtils {
       LOGOUT: `${this.authUrl}/logout`,
       REFRESH: `${this.authUrl}/atualizar`,
     },
+    USUARIOS: `${this.baseUrl}/usuarios`,
   }
 
 }

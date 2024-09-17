@@ -1,9 +1,0 @@
-export enum ProprietarioType {
-  SOCIO,
-  PROPRIETARIO,
-  COMPROMISSARIO,
-  USUFRUTUARIO,
-  DONATARIO,
-  POSSEIRO,
-  CONSUMIDOR
-}

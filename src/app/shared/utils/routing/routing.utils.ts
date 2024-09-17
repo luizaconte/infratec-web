@@ -4,7 +4,14 @@ import {AuthGuard} from '../../../core/guard/auth.guard';
 
 export class RoutingUtils {
   static appRouting(): Array<any> {
-    return [];
+    return [
+      {
+        path: new TransformPagePipe().transform(CurrentCrumbUtils.USUARIOS).route,
+        data: {preload: false},
+        loadChildren: () => import('../../../pages/admin/usuarios/usuarios.module').then(module => module.UsuariosModule),
+        canActivate: [AuthGuard]
+      }
+    ];
   }
 }
 

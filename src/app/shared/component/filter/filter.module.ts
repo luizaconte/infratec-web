@@ -13,10 +13,11 @@ import {
 } from 'devextreme-angular';
 
 import {DirectiveModule} from '../../directives/directive.module';
+import {FilterUsuariosComponent} from "./filter-usuarios.component";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [FilterUsuariosComponent],
   exports: [],
   imports: [
     CommonModule,
