@@ -13,7 +13,7 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
   template: `
     <ng-container *ngIf="!listMode">
       <div class="row">
-        <div class="col-md-7 mb-3">
+        <div class="col-md-8 mb-3">
           <dx-text-box label="Nome" [(value)]="usuario.nome"></dx-text-box>
         </div>
         <div class="col-md-4 mb-3">
@@ -21,13 +21,13 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
                          [(value)]="usuario.tipo" showClearButton="true" displayExpr="description">
           </dx-select-box>
         </div>
-        <div class="col-md-5 mb-3">
+        <div class="col-md-4 mb-3">
           <dx-text-box label="E-mail" [(value)]="usuario.email"></dx-text-box>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-4 mb-3">
           <dx-text-box label="Login" [(value)]="usuario.login"></dx-text-box>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-4 mb-3">
           <dx-text-box [(value)]="usuario.senha" label="Senha" mode="password" [showClearButton]="true"
                        [(mode)]="passwordMode" [readOnly]="readOnly">
             <dxi-button name="visible" location="after" [options]="passwordButton"></dxi-button>

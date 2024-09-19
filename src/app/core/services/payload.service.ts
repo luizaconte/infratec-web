@@ -5,6 +5,7 @@ import {TokenPayload} from '../../model/token-payload.model';
 
 import {StorageUtils} from '../../shared/utils/storage.utils';
 import {ConstantUtils} from '../../shared/utils/constant.utils';
+import {SharedUtils} from "../../shared/utils/shared.utils";
 
 @Injectable({
   providedIn: 'root'
@@ -40,8 +41,11 @@ export class PayloadService {
     return StorageUtils.valueSession<AuthToken>(ConstantUtils.STORAGE.TOKEN)?.refreshToken;
   }
 
+  get payload(): TokenPayload {
+    return SharedUtils.valueStorage(ConstantUtils.STORAGE.PAYLOAD, 'sessionStorage');
+  }
+
   private get tokenPayload(): TokenPayload {
-    const jwtParts: string[] = this.accessToken?.split('.');
-    return JSON.parse(window.atob(decodeURIComponent(jwtParts[1])));
+    return new TokenPayload(this.payload);
   }
 }

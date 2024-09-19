@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
 
-  baseUrl: 'https://homologacao.fiorilli.app',
+  baseUrl: 'http://localhost:8080/api/v1',
 
-  authUrl: 'https://homologacao.fiorilli.app/api/auth',
+  authUrl: 'http://localhost:8080/api/v1/auth',
 };
