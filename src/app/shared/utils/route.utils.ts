@@ -8,5 +8,6 @@ export class RouteUtils {
 
   static readonly USUARIOS = 'usuarios';
   static readonly INICIO = '';
+  static readonly DEPARTAMENTO = 'departamento';
 
 }

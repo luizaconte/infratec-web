@@ -13,6 +13,7 @@ export class EndpointUtils {
       REFRESH: `${this.authUrl}/atualizar`,
     },
     USUARIOS: `${this.baseUrl}/usuarios`,
+    DEPARTAMENTO : `${this.baseUrl}/departamento`,
   }
 
 }

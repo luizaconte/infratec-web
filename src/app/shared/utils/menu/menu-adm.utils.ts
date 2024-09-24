@@ -21,6 +21,13 @@ class MenuAdmUtils implements MenuAbstract {
             icon: 'heroicons_outline:user-circle',
             link: `/${new TransformPagePipe().transform(CurrentCrumbUtils.USUARIOS).route}`,
           },
+          {
+            id: 'departamento',
+            title: 'Departamento',
+            type: 'basic',
+            icon: 'heroicons_outline:user-group',
+            link: `/${new TransformPagePipe().transform(CurrentCrumbUtils.DEPARTAMENTO).route}`,
+          },
         ]
       }]
   }

@@ -7,7 +7,7 @@ import {FilterField} from '../../../model/filterable.model';
 import {FilterAbstractComponent} from './filter.abstract.component';
 
 @Component({
-  selector: 'infratec-filter-usuarios',
+  selector: 'infratec-filter-departamento',
   template: `
     <div [formGroup]="form">
       <div class="row">
@@ -17,14 +17,11 @@ import {FilterAbstractComponent} from './filter.abstract.component';
         <div class="col-md-6 mb-3">
           <dx-text-box label="Nome" formControlName="nome" showClearButton="true"></dx-text-box>
         </div>
-        <div class="col-md-6 mb-3">
-          <dx-text-box label="Login" formControlName="login" showClearButton="true"></dx-text-box>
-        </div>
       </div>
     </div>
   `
 })
-export class FilterUsuariosComponent extends FilterAbstractComponent implements OnInit {
+export class FilterDepartamentoComponent extends FilterAbstractComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
     super();
   }
@@ -33,7 +30,6 @@ export class FilterUsuariosComponent extends FilterAbstractComponent implements 
     this.form = this.formBuilder.group({
       id: [null],
       nome: [null],
-      login: [null],
     });
   }
 
@@ -41,7 +37,6 @@ export class FilterUsuariosComponent extends FilterAbstractComponent implements 
     this.filters = new Array<FilterField>();
     this.addFilter('id', this.form.controls.id.value, ExpressionLanguage.IGUAL);
     this.addFilter('nome', this.form.controls.nome.value, ExpressionLanguage.CONTENHA);
-    this.addFilter('login', this.form.controls.login.value, ExpressionLanguage.CONTENHA);
 
   }
 }

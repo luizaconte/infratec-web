@@ -14,10 +14,11 @@ import {
 
 import {DirectiveModule} from '../../directives/directive.module';
 import {FilterUsuariosComponent} from "./filter-usuarios.component";
+import {FilterDepartamentoComponent} from "./filter-departamento.component";
 
 
 @NgModule({
-  declarations: [FilterUsuariosComponent],
+  declarations: [FilterUsuariosComponent,FilterDepartamentoComponent],
   exports: [],
   imports: [
     CommonModule,

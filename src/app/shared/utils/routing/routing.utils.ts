@@ -10,6 +10,12 @@ export class RoutingUtils {
         data: {preload: false},
         loadChildren: () => import('../../../pages/admin/usuarios/usuarios.module').then(module => module.UsuariosModule),
         canActivate: [AuthGuard]
+      } ,
+      {
+        path: new TransformPagePipe().transform(CurrentCrumbUtils.DEPARTAMENTO).route,
+        data: {preload: false},
+        loadChildren: () => import('../../../pages/admin/departamento/departamento.module').then(module => module.DepartamentoModule),
+        canActivate: [AuthGuard]
       }
     ];
   }
