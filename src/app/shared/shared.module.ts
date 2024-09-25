@@ -13,6 +13,8 @@ import {ObjectStateInterceptor} from '../core/interceptor/object-state.intercept
 
 import {NotFoundComponent} from './component/page-not-found/not-found.component';
 import {FilterModule} from './component/filter/filter.module';
+import {SearchDialogBaseComponent} from "./component/search-dialog/search-dialog-base.component";
+import {InputSearchDialogBaseComponent} from "./component/input-search-dialog/input-search-dialog-base.component";
 
 @NgModule({
   imports: [
@@ -28,6 +30,8 @@ import {FilterModule} from './component/filter/filter.module';
   ],
   declarations: [
     NotFoundComponent,
+    SearchDialogBaseComponent,
+    InputSearchDialogBaseComponent
   ],
   providers: [
     {provide: ErrorHandler, useClass: AppErrorHandlerService},
@@ -41,7 +45,8 @@ import {FilterModule} from './component/filter/filter.module';
     DevExpressModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputSearchDialogBaseComponent
   ]
 })
 export class SharedModule {

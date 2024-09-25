@@ -14,7 +14,7 @@ import {FilterAbstractComponent} from './filter.abstract.component';
         <div class="col-md-2 mb-3">
           <dx-number-box label="Id" formControlName="id" showClearButton="true"></dx-number-box>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-10 mb-3">
           <dx-text-box label="Nome" formControlName="nome" showClearButton="true"></dx-text-box>
         </div>
       </div>

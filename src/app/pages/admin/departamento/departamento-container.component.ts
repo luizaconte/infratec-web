@@ -6,7 +6,6 @@ import {Departamento} from "../../../model/departamento.model";
 import {TransformPagePipe} from "../../../shared/pipes/transform-page.pipe";
 import {CurrentCrumbUtils} from "../../../shared/utils/current-crumb.utils";
 import {ButtonAction} from "../../../enum/button-action.enum";
-import {EnumUtils} from "../../../shared/utils/enum.utils";
 
 @Component({
   selector: 'infratec-departamento-container',
@@ -17,19 +16,13 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
           <dx-text-box label="Nome" [(value)]="departamento.nome"></dx-text-box>
         </div>
 
-        </div>
+      </div>
 
     </ng-container>`
 })
-export class DepartamentoContainerComponents extends CadastroBaseComponent implements OnInit {
+export class DepartamentoContainerComponent extends CadastroBaseComponent implements OnInit {
   departamento: Departamento = new Departamento();
   readOnly = false;
-
-  passwordMode: 'text' | 'password' = 'password';
-
-  passwordButton: any;
-
-  tiposUsuario = EnumUtils.tiposPessoa;
 
   constructor() {
     super();
@@ -48,15 +41,6 @@ export class DepartamentoContainerComponents extends CadastroBaseComponent imple
   }
 
   ngOnInit(): void {
-    this.passwordButton = {
-      icon: 'far fa-eye',
-      stylingMode: 'text',
-      hint: 'Mostrar/Esconder',
-      onClick: (event) => {
-        event.component.option('icon', this.passwordMode === 'text' ? 'far fa-eye' : 'far fa-eye-slash');
-        this.passwordMode = this.passwordMode === 'text' ? 'password' : 'text';
-      }
-    };
 
     this.beforeAction.subscribe(button => {
       if (button.action === ButtonAction.EDITAR || button.action === ButtonAction.VISUALIZAR) {

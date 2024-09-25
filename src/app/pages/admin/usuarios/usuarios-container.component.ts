@@ -21,10 +21,10 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
                          [(value)]="usuario.tipo" showClearButton="true" displayExpr="description">
           </dx-select-box>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-4 mb-3">
           <dx-text-box label="E-mail" [(value)]="usuario.email"></dx-text-box>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-4 mb-3">
           <dx-text-box label="Login" [(value)]="usuario.login"></dx-text-box>
         </div>
         <div class="col-md-4 mb-3">
@@ -32,6 +32,11 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
                        [(mode)]="passwordMode" [readOnly]="readOnly">
             <dxi-button name="visible" location="after" [options]="passwordButton"></dxi-button>
           </dx-text-box>
+        </div>
+        <div class="col-md-6 mb-3">
+          <infratec-input-search-dialog-departamento [(value)]="usuario.departamento.id"
+                                                     [(description)]="usuario.departamento.nome">
+          </infratec-input-search-dialog-departamento>
         </div>
       </div>
     </ng-container>`
@@ -56,6 +61,7 @@ export class UsuariosContainerComponent extends CadastroBaseComponent implements
         {caption: 'Nome', dataField: 'nome', dataType: 'string'},
         {caption: 'Login', dataField: 'login', dataType: 'string'},
         {caption: 'E-mail', dataField: 'email', dataType: 'string'},
+        {caption: 'Departamento', dataField: 'departamento.id', dataType: 'string'},
         {caption: 'Data Inclusão', dataField: 'dataInclusao', dataType: 'date', format: 'dd/MM/yyyy'},
       ],
       columnId: 'id',

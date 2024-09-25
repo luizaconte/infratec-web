@@ -7,12 +7,12 @@ import {UrlRouterUtils} from "../../../shared/utils/url-router.utils";
 import {SharedModule} from "../../../shared/shared.module";
 import {DxTextBoxModule} from "devextreme-angular";
 import {CadastroBaseModule} from "../../../layout/cadastro-base-layout/cadastro/cadastro-base.module";
-import {DepartamentoContainerComponents} from "./departamento-container.components";
+import {DepartamentoContainerComponent} from "./departamento-container.component";
 import {DepartamentoPresenterComponent} from "./departamento-presenter.component";
 
 @NgModule({
   declarations: [
-    DepartamentoContainerComponents,
+    DepartamentoContainerComponent,
     DepartamentoPresenterComponent,
   ],
   imports: [
