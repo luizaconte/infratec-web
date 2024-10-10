@@ -20,7 +20,7 @@ export class RoutingUtils {
       {
         path: new TransformPagePipe().transform(CurrentCrumbUtils.CHAMADO).route,
         data: {preload: false},
-        loadChildren: () => import('../../../pages/admin/chamado/chamado.module').then(module => module.ChamadoModule),
+        loadChildren: () => import('../../../pages/geral/chamado/chamado.module').then(module => module.ChamadoModule),
         canActivate: [AuthGuard]
       }
     ];
