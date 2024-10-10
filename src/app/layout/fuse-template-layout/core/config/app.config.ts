@@ -32,7 +32,7 @@ export interface AppConfig {
  * "Themes" are required for Tailwind to generate themes.
  */
 export const appConfig: AppConfig = {
-  layout: 'sia-layout',
+  layout: 'infratec-layout',
   scheme: 'light',
   screens: {
     sm: '600px',
@@ -40,7 +40,7 @@ export const appConfig: AppConfig = {
     lg: '1280px',
     xl: '1440px'
   },
-  theme: 'theme-fiorilli',
+  theme: 'theme-infratec',
   themes: [
     {
       id: 'theme-default',
@@ -67,8 +67,8 @@ export const appConfig: AppConfig = {
       name: 'Amber'
     },
     {
-      id: 'theme-fiorilli',
-      name: 'Fiorilli'
+      id: 'theme-infratec',
+      name: 'Infratec'
     }
   ]
 };

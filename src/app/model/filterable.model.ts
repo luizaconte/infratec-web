@@ -55,57 +55,27 @@ export class Filterable {
     const queryControl = [];
     const commands = [];
 
-    if (url && (url.includes('api/sia') || url.includes('api/fluxo'))) {
-      this._query.forEach((field: any) => {
-        const index = queryControl.findIndex((item) => item._name === field._name);
-        if (index === -1) {
-          const value = `,${field.value}`;
-          if (field._type) {
-            const condition = `${field.name},${field?._type.filterSia}${value.length > 1 ? value : ''}`;
-            queryControl.push(field)
-            field.isCmd ? commands.push(condition) : query.push(condition);
-          }
+    this._query.forEach((field: any) => {
+      if (field._type) {
+        if (field._type.description.includes('Não Nulo')) {
+          const condition = `${field.name}!=null`;
+          field.isCmd ? commands.push(condition) : query.push(condition);
+        } else if (field._type.description.includes('Nulo')) {
+          const condition = `${field.name}==null`;
+          field.isCmd ? commands.push(condition) : query.push(condition);
         } else {
-          queryControl[index] = field;
+          const value = field._type.filter === 'in' || field._type.filter === 'bt' ? `=(${field.value})` : `=${field.value}`;
+          const condition = `${field.name}=${field._type.filter}${value.length > 1 ? value : ''}`;
+          field.isCmd ? commands.push(condition) : query.push(condition);
         }
-      });
-    } else if (url && url.includes('/servicos-web')) {
-      this._query.forEach((field: any) => {
-        const value = field.value;
-        let condition;
-        if (field?._type?.description === 'Contém') {
-          condition = `${field.name}=='*${value}*'`;
-        } else {
-          condition = `${field.name}${field._type?.sia7}${value}`;
-        }
-        field.isCmd ? commands.push(condition) : query.push(condition);
-      });
-    } else {
-      this._query.forEach((field: any) => {
-        if (field._type) {
-          if (field._type.description.includes('Não Nulo')) {
-            const condition = `${field.name}!=null`;
-            field.isCmd ? commands.push(condition) : query.push(condition);
-          } else if (field._type.description.includes('Nulo')) {
-            const condition = `${field.name}==null`;
-            field.isCmd ? commands.push(condition) : query.push(condition);
-          } else {
-            const value = field._type.filter === 'in' || field._type.filter === 'bt' ? `=(${field.value})` : `=${field.value}`;
-            const condition = `${field.name}=${field._type.filter}${value.length > 1 ? value : ''}`;
-            field.isCmd ? commands.push(condition) : query.push(condition);
-          }
-        }
-      });
-    }
-
+      }
+    });
 
     let queryParam = '';
     if (query.length > 0) {
-      if (url && url.includes('api/sia') || url.includes('api/fluxo')) {
-        queryParam += 'fields='.concat(query.join(';'));
-      } else {
-        queryParam += 'query='.concat(query.join(';'));
-      }
+
+      queryParam += 'query='.concat(query.join(';'));
+
       if (this.queryParam?.toString()) {
         queryParam += `&${this.queryParam.toString()}`;
       }

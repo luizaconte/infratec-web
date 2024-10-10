@@ -88,9 +88,6 @@ export class CadastroFilhoBaseLayoutComponent implements OnInit, OnChanges {
   @Input()
   selectionMode: SingleMultipleOrNone = 'single';
 
-  @Input()
-  cadastroSia = true;
-
   @Output()
   rowClick: EventEmitter<unknown> = new EventEmitter<unknown>();
 
@@ -148,7 +145,7 @@ export class CadastroFilhoBaseLayoutComponent implements OnInit, OnChanges {
       load: () => {
         return this.checkHistoryValue ?
           this.objects?.filter((load: ObjectState) => load._KEY_ = uuidv4()) :
-          this.objects?.filter((item: ObjectState) => item[this.cadastroSia ? 'object_state' : 'objectState'] === undefined || this.filterObject(item)).filter(load => load._KEY_ = uuidv4());
+          this.objects?.filter((item: ObjectState) => item['objectState'] === undefined || this.filterObject(item)).filter(load => load._KEY_ = uuidv4());
       },
       update: () => {
         if (this.checkHistoryValue) {
@@ -158,7 +155,7 @@ export class CadastroFilhoBaseLayoutComponent implements OnInit, OnChanges {
         }
         return new Promise((resolve) => {
           resolve(this.objects?.filter((item: ObjectState) => {
-            return item[this.cadastroSia ? 'object_state' : 'objectState'] === undefined || item[this.cadastroSia ? 'object_state' : 'objectState'] !== ObjectStateType.DELETED;
+            return item['objectState'] === undefined || item['objectState'] !== ObjectStateType.DELETED;
           }).filter((update: ObjectState) => update._KEY_ = uuidv4()));
         });
       }
@@ -235,12 +232,12 @@ export class CadastroFilhoBaseLayoutComponent implements OnInit, OnChanges {
       if (this.callback === CallbackType.UNUSED || this.callback === CallbackType.FINALIZED || !this.callback) {
         const index = this.objects.findIndex((key: ObjectState) => key._KEY_ === this.object._KEY_);
         if (index !== -1) {
-          if (this.object[this.cadastroSia ? 'object_state' : 'objectState'] !== ObjectStateType.INSERTED) {
-            this.object[this.cadastroSia ? 'object_state' : 'objectState'] = ObjectStateType.MODIFIED;
+          if (this.object['objectState'] !== ObjectStateType.INSERTED) {
+            this.object['objectState'] = ObjectStateType.MODIFIED;
           }
           Object.assign(this.objects[index], this.object);
         } else {
-          this.object[this.cadastroSia ? 'object_state' : 'objectState'] = ObjectStateType.INSERTED;
+          this.object['objectState'] = ObjectStateType.INSERTED;
           if (this.dadosBase.columnOrder) {
             this.object[this.dadosBase.columnOrder] = this.objects.length;
           }
@@ -361,7 +358,7 @@ export class CadastroFilhoBaseLayoutComponent implements OnInit, OnChanges {
           }
         }
         const obj = this.objects[index];
-        obj[this.cadastroSia ? 'object_state' : 'objectState'] = existEndDate ? ObjectStateType.MODIFIED : ObjectStateType.DELETED;
+        obj['objectState'] = existEndDate ? ObjectStateType.MODIFIED : ObjectStateType.DELETED;
         if (this.inputMessageDelete) {
           this.objects[index][this.inputMessageDelete.fieldInputName] = this.object[this.inputMessageDelete.fieldInputName];
         }
@@ -376,7 +373,7 @@ export class CadastroFilhoBaseLayoutComponent implements OnInit, OnChanges {
   }
 
   private filterObject = (item): boolean => {
-    return item[this.dataFim] === undefined ? item[this.cadastroSia ? 'object_state' : 'objectState'] !== ObjectStateType.DELETED : !item[this.dataFim];
+    return item[this.dataFim] === undefined ? item['objectState'] !== ObjectStateType.DELETED : !item[this.dataFim];
   };
 
   private reorder(reorder: boolean = true): number {
@@ -386,8 +383,8 @@ export class CadastroFilhoBaseLayoutComponent implements OnInit, OnChanges {
     if (reorder) {
       const objects = this.objects.filter((value: ObjectState) => value.object_state !== ObjectStateType.DELETED);
       objects.forEach((value: ObjectState, index: number) => {
-        if (value[this.cadastroSia ? 'object_state' : 'objectState'] !== ObjectStateType.INSERTED) {
-          value[this.cadastroSia ? 'object_state' : 'objectState'] = ObjectStateType.MODIFIED;
+        if (value['objectState'] !== ObjectStateType.INSERTED) {
+          value['objectState'] = ObjectStateType.MODIFIED;
         }
         value[this.dadosBase.columnOrder] = index;
       });

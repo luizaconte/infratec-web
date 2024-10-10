@@ -14,11 +14,7 @@ export class Sortable {
   createUrl(url, firstParam = true) {
     let queryParam = '';
     if (this._query) {
-      if (url.includes('api/sia')) {
-        queryParam += this._query.map(value => `${value.selector},${value.desc ? 'desc' : 'asc'}`).join(';');
-      } else {
-        queryParam += this._query.map(value => `${value.desc ? '$' : '@'}${value.selector}`).join(';');
-      }
+      queryParam += this._query.map(value => `${value.desc ? '$' : '@'}${value.selector}`).join(';');
     }
     return url.concat(firstParam ? '?' : '&', 'sort=', queryParam);
   }

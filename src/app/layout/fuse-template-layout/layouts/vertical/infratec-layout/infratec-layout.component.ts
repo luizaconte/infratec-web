@@ -8,11 +8,11 @@ import {NavigationService} from 'app/layout/fuse-template-layout/core/navigation
 import {UserService} from 'app/layout/fuse-template-layout/core/user/user.service';
 
 @Component({
-  selector: 'sia-layout',
-  templateUrl: './sia-layout.component.html',
+  selector: 'infratec-layout',
+  templateUrl: './infratec-layout.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class SiaLayoutComponent implements OnInit, OnDestroy {
+export class InfratecLayoutComponent implements OnInit, OnDestroy {
 
   isScreenSmall: boolean;
   navigation: Navigation;

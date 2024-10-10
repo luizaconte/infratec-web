@@ -14,11 +14,11 @@ import {SearchModule} from 'app/layout/fuse-template-layout/common/search/search
 import {ShortcutsModule} from 'app/layout/fuse-template-layout/common/shortcuts/shortcuts.module';
 import {UserModule} from 'app/layout/fuse-template-layout/common/user/user.module';
 import {SharedModule} from 'app/shared/shared.module';
-import {SiaLayoutComponent} from 'app/layout/fuse-template-layout/layouts/vertical/sia-layout/sia-layout.component';
+import {InfratecLayoutComponent} from './infratec-layout.component';
 
 @NgModule({
   declarations: [
-    SiaLayoutComponent
+    InfratecLayoutComponent
   ],
   imports: [
     HttpClientModule,
@@ -38,8 +38,8 @@ import {SiaLayoutComponent} from 'app/layout/fuse-template-layout/layouts/vertic
     SharedModule
   ],
   exports: [
-    SiaLayoutComponent
+    InfratecLayoutComponent
   ]
 })
-export class SiaLayoutModule {
+export class InfratecLayoutModule {
 }

@@ -11,7 +11,7 @@ const generatePalette = require(path.resolve(__dirname, ('src/@fuse/tailwind/uti
  */
 const customPalettes = {
   brand: generatePalette('#2196F3'),
-  fiorilli: generatePalette('#006060')
+  infratec: generatePalette('#006060') // TODO - mudar cor
 };
 
 /**
@@ -59,8 +59,8 @@ const themes = {
   'amber': {
     primary: colors.amber
   },
-  'fiorilli': {
-    primary: customPalettes.fiorilli
+  'infratec': {
+    primary: customPalettes.infratec
   }
 };
 

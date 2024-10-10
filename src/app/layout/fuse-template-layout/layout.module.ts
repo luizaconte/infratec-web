@@ -13,7 +13,7 @@ import {FuturisticLayoutModule} from './layouts/vertical/futuristic/futuristic.m
 import {ThinLayoutModule} from './layouts/vertical/thin/thin.module';
 import {SettingsModule} from './common/settings/settings.module';
 import {SharedModule} from '../../shared/shared.module';
-import {SiaLayoutModule} from './layouts/vertical/sia-layout/sia-layout.module';
+import {InfratecLayoutModule} from './layouts/vertical/infratec-layout/infratec-layout.module';
 
 const layoutModules = [
   // Empty
@@ -33,8 +33,8 @@ const layoutModules = [
   FuturisticLayoutModule,
   ThinLayoutModule,
 
-  //Fiorilli
-  SiaLayoutModule
+  //Infratec
+  InfratecLayoutModule
 ];
 
 @NgModule({

@@ -12,5 +12,5 @@ export type Layout =
   | 'dense'
   | 'futuristic'
   | 'thin'
-  // Fiorilli
-  | 'sia-layout';
+  // Infratec
+  | 'infratec-layout';
