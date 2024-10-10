@@ -14,6 +14,7 @@ export class EndpointUtils {
     },
     USUARIOS: `${this.baseUrl}/usuarios`,
     DEPARTAMENTO : `${this.baseUrl}/departamento`,
+    CHAMADO : `${this.baseUrl}/chamado`,
   }
 
 }

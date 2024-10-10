@@ -16,6 +16,12 @@ export class RoutingUtils {
         data: {preload: false},
         loadChildren: () => import('../../../pages/admin/departamento/departamento.module').then(module => module.DepartamentoModule),
         canActivate: [AuthGuard]
+      },
+      {
+        path: new TransformPagePipe().transform(CurrentCrumbUtils.CHAMADO).route,
+        data: {preload: false},
+        loadChildren: () => import('../../../pages/admin/chamado/chamado.module').then(module => module.ChamadoModule),
+        canActivate: [AuthGuard]
       }
     ];
   }

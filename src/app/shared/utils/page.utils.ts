@@ -20,6 +20,12 @@ export class PageUtils {
             filterBase: FilterDepartamentoComponent,
             route: RouteUtils.DEPARTAMENTO,
           },
+          {
+            currentCrumb: CurrentCrumbUtils.CHAMADO,
+            endpoint: new EndpointUtils().ApiBaseUrl.CHAMADO,
+            //filterBase: FilterDepartamentoComponent,
+            route: RouteUtils.CHAMADO,
+          },
         ];
       }
 }
