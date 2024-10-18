@@ -4,6 +4,7 @@ import {RouteUtils} from './route.utils';
 import {EndpointUtils} from './endpoint.utils';
 import {FilterUsuariosComponent} from "../component/filter/filter-usuarios.component";
 import {FilterDepartamentoComponent} from "../component/filter/filter-departamento.component";
+import {FilterChamadoComponent} from "../component/filter/filter-chamado.component";
 
 export class PageUtils {
   get page(): Array<IPage> {
@@ -23,7 +24,7 @@ export class PageUtils {
           {
             currentCrumb: CurrentCrumbUtils.CHAMADO,
             endpoint: new EndpointUtils().ApiBaseUrl.CHAMADO,
-            //filterBase: FilterDepartamentoComponent,
+            filterBase: FilterChamadoComponent,
             route: RouteUtils.CHAMADO,
           },
         ];

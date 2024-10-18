@@ -18,7 +18,7 @@ class MenuGeralUtils implements MenuAbstract {
             id: 'chamados',
             title: 'Chamados',
             type: 'basic',
-            icon: 'heroicons_outline:user-circle',
+            icon: 'heroicons_outline:clipboard-check',
             link: `/${new TransformPagePipe().transform(CurrentCrumbUtils.CHAMADO).route}`,
           },
         ]

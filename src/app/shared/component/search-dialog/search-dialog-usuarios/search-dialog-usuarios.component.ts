@@ -1,15 +1,15 @@
 import {Component} from "@angular/core";
 import {SearchDialogBaseComponent} from "../search-dialog-base.component";
 import {
-  DepartamentoContainerComponent,
-} from "../../../../pages/admin/departamento/departamento-container.component";
+  UsuariosContainerComponent,
+} from "../../../../pages/admin/usuarios/usuarios-container.component";
 
 @Component({
-  selector: 'infratec-search-dialog-departamento',
+  selector: 'infratec-search-dialog-usuarios',
   template: `
     <infratec-dialog #searchDialog [selectionMode]="selectionMode" [title]="title" [dialogCadastro]="dialogCadastro"
                      [dispose]="dispose" [showCadastroDialog]="showCadastroDialog"
-                     [(model)]="customContainer?.instance.departamento"
+                     [(model)]="customContainer?.instance.usuario"
                      [afterAction]="afterAction" [beforeAction]="beforeAction"
                      [currentCrumb]="customContainer?.instance.cadastroBase.page.currentCrumb"
                      descriptionField="nome" (showPopup)="onShow()">
@@ -17,13 +17,13 @@ import {
     </infratec-dialog>
   `
 })
-export class SearchDialogDepartamentoComponent extends SearchDialogBaseComponent {
+export class SearchDialogUsuariosComponent extends SearchDialogBaseComponent {
   constructor() {
     super();
-    this.title = 'Selecione um Departamento';
+    this.title = 'Selecione um Usuário';
   }
 
   onShow() {
-    super.detectComponent(DepartamentoContainerComponent)
+    super.detectComponent(UsuariosContainerComponent)
   }
 }

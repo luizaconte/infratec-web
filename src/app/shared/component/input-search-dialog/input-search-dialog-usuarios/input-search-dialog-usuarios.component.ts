@@ -5,20 +5,21 @@ import {EndpointUtils} from "../../../utils/endpoint.utils";
 import {InputSearchDialogBaseComponent} from "../input-search-dialog-base.component";
 
 @Component({
-  selector: 'infratec-input-search-dialog-departamento',
+  selector: 'infratec-input-search-dialog-usuarios',
   template: `
     <infratec-input-search [(value)]="value" [(description)]="description" codeLabel="Código"
-                           descriptionLabel="Departamento" [focus]="focus"
+                           [descriptionLabel]="placeholder" [focus]="focus"
                            valueExpr="id" descriptionExpr="nome" [dataSelected]="dispose" [readOnly]="readOnly"
-                           [dispose]="dispose" [url]="url" (buttonClick)="dialogDepartamento.searchDialog.show()"
+                           [dispose]="dispose" [url]="url" (buttonClick)="dialogUsuarios.searchDialog.show()"
                            (descriptionChange)="onDescriptionChange($event)" (valueChange)="onValueChange($event)">
-      <infratec-search-dialog-departamento #dialogDepartamento [dispose]="dispose"></infratec-search-dialog-departamento>
+      <infratec-search-dialog-usuarios #dialogUsuarios [dispose]="dispose"></infratec-search-dialog-usuarios>
     </infratec-input-search>
   `
 })
-export class InputSearchDialogDepartamentoComponent extends InputSearchDialogBaseComponent {
+export class InputSearchDialogUsuariosComponent extends InputSearchDialogBaseComponent {
   constructor() {
     super();
-    this.url = new EndpointUtils().ApiBaseUrl.DEPARTAMENTO;
+    this.placeholder= "Usuário";
+    this.url = new EndpointUtils().ApiBaseUrl.USUARIOS;
   }
 }
