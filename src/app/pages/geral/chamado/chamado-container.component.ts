@@ -22,8 +22,7 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
         <div class="col-md-10 mb-3">
           <infratec-input-search-dialog-usuarios [(value)]="chamado.usuarioResponsavel.id"
                                                  placeholder="Usuário Responsável"
-                                                 [(description)]="chamado.usuarioResponsavel.nome"
-                                                 (dispose)="disposeUsuario($event)">
+                                                 [(description)]="chamado.usuarioResponsavel.nome">
           </infratec-input-search-dialog-usuarios>
         </div>
         <div class="col-md-9 mb-3">
@@ -93,17 +92,12 @@ export class ChamadoContainerComponent extends CadastroBaseComponent implements 
     this.beforeAction.subscribe(button => {
       if (button.action === ButtonAction.EDITAR || button.action === ButtonAction.VISUALIZAR) {
         this.readOnly = true;
-        this.viewEdit = true; // TODO- exibir informações criação do chamado
       }
       if (button.action === ButtonAction.ADICIONAR) {
         this.chamado.usuarioResponsavel = new Usuarios();
       }
     });
 
-  }
-
-  disposeUsuario(event): void {
-    // TODO infos do usuario
   }
 }
 

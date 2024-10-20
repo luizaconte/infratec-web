@@ -11,7 +11,6 @@ class MenuGeralUtils implements MenuAbstract {
       {
         id: 'adm',
         title: 'Geral',
-        subtitle: 'Cadastros gerais do sistema',
         type: 'group',
         children: [
           {

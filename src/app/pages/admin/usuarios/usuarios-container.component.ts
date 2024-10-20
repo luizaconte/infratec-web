@@ -89,7 +89,6 @@ export class UsuariosContainerComponent extends CadastroBaseComponent implements
       }
     });
 
-    // TODO - departamento
   }
 }
 

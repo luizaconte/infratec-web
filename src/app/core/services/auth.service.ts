@@ -51,7 +51,6 @@ export class AuthService {
     return this.tokenPayload.user?.login;
   }
 
-
   get payload(): TokenPayload {
     return SharedUtils.valueStorage(ConstantUtils.STORAGE.PAYLOAD, 'sessionStorage');
   }

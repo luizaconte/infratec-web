@@ -11,7 +11,7 @@ const generatePalette = require(path.resolve(__dirname, ('src/@fuse/tailwind/uti
  */
 const customPalettes = {
   brand: generatePalette('#2196F3'),
-  infratec: generatePalette('#586464') // TODO - mudar cor
+  infratec: generatePalette('#586464')
 };
 
 /**

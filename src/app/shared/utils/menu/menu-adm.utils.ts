@@ -11,7 +11,6 @@ class MenuAdmUtils implements MenuAbstract {
       {
         id: 'adm',
         title: 'Administração',
-        subtitle: 'Informações sensíveis do sistema',
         type: 'group',
         children: [
           {
