@@ -41,7 +41,7 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
                          [readOnly]="readOnly"></dx-text-box>
           </div>
           <div class="col-md-3 mb-3">
-            <dx-date-box label="Data Abertura" [(value)]="chamado.dataInclusao" [readOnly]="readOnly"
+            <dx-date-box label="Data Inclusão" [(value)]="chamado.dataInclusao" [readOnly]="readOnly"
                          displayFormat="dd/MM/yyyy"></dx-date-box>
           </div>
           <div class="col-md-3 mb-3">
@@ -50,7 +50,7 @@ import {EnumUtils} from "../../../shared/utils/enum.utils";
           </div>
         </ng-container>
 
-        <infratec-comentarios [comentarios]="chamado.comentarios" title="Andamentos"></infratec-comentarios>
+        <infratec-comentarios [comentarios]="chamado.comentarios" title="Andamentos" (enableHandlerChange)="onEnableHandlerChange($event)"></infratec-comentarios>
       </div>
     </ng-container>`
 })

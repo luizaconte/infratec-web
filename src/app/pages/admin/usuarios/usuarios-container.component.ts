@@ -61,7 +61,7 @@ export class UsuariosContainerComponent extends CadastroBaseComponent implements
         {caption: 'Nome', dataField: 'nome', dataType: 'string'},
         {caption: 'Login', dataField: 'login', dataType: 'string'},
         {caption: 'E-mail', dataField: 'email', dataType: 'string'},
-        {caption: 'Departamento', dataField: 'departamento.id', dataType: 'string'},
+        {caption: 'Departamento', dataField: 'departamento.nome', dataType: 'string'},
         {caption: 'Data Inclusão', dataField: 'dataInclusao', dataType: 'date', format: 'dd/MM/yyyy'},
       ],
       columnId: 'id',
